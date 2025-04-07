@@ -1,0 +1,918 @@
+{
+	"info": {
+		"_postman_id": "48a73c9a-5394-40ec-8266-31df6732f2d3",
+		"name": "APi Övningar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43555795",
+		"_collection_link": "https://carlosdematos.postman.co/workspace/Carlos-De-Matos's-Workspace~e85606f1-4fb1-4bb5-84f7-f9a55a0dde57/collection/43555795-48a73c9a-5394-40ec-8266-31df6732f2d3?action=share&source=collection_link&creator=43555795"
+	},
+	"item": [
+		{
+			"name": "test intro",
+			"item": [
+				{
+					"name": "LOG_OUT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}login",
+							"host": [
+								"{{baseurl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-in as admin Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged-in as an admin\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"username\", \"admin\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@admin.com\",\n    \"password\":\"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}login",
+							"host": [
+								"{{baseurl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Username\":\"MaxHernandez\",\n    \"Email\":\"unique-email@email.com\",\n    \"Password\":\"max123\",\n    \"roleId\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}users",
+							"host": [
+								"{{baseurl}}users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "log-out of user Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}login",
+							"host": [
+								"{{baseurl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-in as user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged-in as an user\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"username\", \"jane\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"jane@email.com\",\n    \"password\":\"jane123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}login",
+							"host": [
+								"{{baseurl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-out of user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}login",
+							"host": [
+								"{{baseurl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-in as admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Logged-in as an admin\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"username\", \"admin\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@admin.com\",\n    \"password\":\"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}login",
+							"host": [
+								"{{baseurl}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all uses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"const janeObject = responseJson.find(user => user.username === \"MaxHernandez\");",
+									"if (janeObject) {",
+									"    pm.environment.set(\"userId\", janeObject.id);",
+									"    console.log(\"Jane's id saved to environment variable:\", janeObject.id);",
+									"} else {",
+									"    console.error(\"User 'max' not found in response\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}users",
+							"host": [
+								"{{baseurl}}users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "get categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test if the response body is an array",
+									"pm.test(\"Response is an array\", function () {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an('array');",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"const responseJson = pm.response.json();",
+									"const kitchenCategory = responseJson.find(category => category.name === \"Kitchen\");",
+									"",
+									"if (kitchenCategory) {",
+									"    pm.environment.set(\"categoryId\", kitchenCategory.id);",
+									"    console.log(\"Kitchen's id saved to environment variable:\", kitchenCategory.id);",
+									"} else {",
+									"    console.error(\"Kitchen category not found in response\");",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}categories",
+							"host": [
+								"{{baseurl}}categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"/*",
+									"// Test if the response body is an array",
+									"pm.test(\"Response is an array\", function () {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an('array');",
+									"});",
+									"*/",
+									"",
+									"const responseJson = pm.response.json();",
+									"pm.test(\"Response has insertId\", function () {",
+									"    pm.expect(responseJson).to.have.property(\"insertId\");",
+									"});",
+									"pm.environment.set(\"categoryId\", responseJson.insertId);",
+									"console.log(\"insertId saved to environment variable:\", responseJson.insertId);",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Kitchen\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}categories/",
+							"host": [
+								"{{baseurl}}categories"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "gets product by id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}products/1",
+							"host": [
+								"{{baseurl}}products"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test if the response body is an array",
+									"pm.test(\"Response is an array\", function () {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an('array');",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}products",
+							"host": [
+								"{{baseurl}}products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add product and give it a cateogory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"/*",
+									"// Test if the response body is an array",
+									"pm.test(\"Response is an array\", function () {",
+									"    const responseJson = pm.response.json();",
+									"    pm.expect(responseJson).to.be.an('array');",
+									"});",
+									"*/",
+									"",
+									"",
+									"const responseJson = pm.response.json();",
+									"pm.test(\"Response has insertId\", function () {",
+									"    pm.expect(responseJson).to.have.property(\"insertId\");",
+									"});",
+									"pm.environment.set(\"product\", responseJson.insertId);",
+									"console.log(\"insertId saved to environment variable:\", responseJson.insertId);",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"knife\",\n    \"price\": 15,\n    \"categoryid\": {{categoryId}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}products",
+							"host": [
+								"{{baseurl}}products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testing dublicate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									"pm.test(\"Error message is correct\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"error\", \"A product with the same name already exists.\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"knife\",\n    \"price\":15,\n    \"categoryid\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}products",
+							"host": [
+								"{{baseurl}}products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const product = pm.variables.get(\"product\");",
+									"",
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Error message is correct\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"message\", `Product with id:${product} updated`);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\":20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}products/{{product}}",
+							"host": [
+								"{{baseurl}}products"
+							],
+							"path": [
+								"{{product}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test outro",
+			"item": [
+				{
+					"name": "delete the test product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const product = pm.variables.get(\"product\");",
+									"",
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Error message is correct\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"message\", `Product with id:${product} deleted`);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}products/{{product}}",
+							"host": [
+								"{{baseurl}}products"
+							],
+							"path": [
+								"{{product}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete the test category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const product = pm.variables.get(\"categoryId\");",
+									"",
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Error message is correct\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"message\", `Category with id:${product} deleted`);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}categories/{{categoryId}}",
+							"host": [
+								"{{baseurl}}categories"
+							],
+							"path": [
+								"{{categoryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete test user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const userId = pm.variables.get(\"userId\");",
+									"",
+									"// Test if the status code is 200",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Error message is correct\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"message\", `User with id:${userId} deleted`);",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}users/{{userId}}",
+							"host": [
+								"{{baseurl}}users"
+							],
+							"path": [
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOG_OUT",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}login",
+							"host": [
+								"{{baseurl}}login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

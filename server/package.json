@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "run-tests": "newman run Postman_Newman_IntegrationCollection.json -e testEnv.json"
+  }
+}
