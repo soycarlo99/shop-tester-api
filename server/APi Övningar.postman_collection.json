@@ -586,6 +586,41 @@
 					"response": []
 				},
 				{
+					"name": "gets the new product with its ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The added product exists\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"name\", \"knife\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}products/{{product}}",
+							"host": [
+								"{{baseurl}}products"
+							],
+							"path": [
+								"{{product}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "testing dublicate",
 					"event": [
 						{
@@ -697,6 +732,41 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "gets the updated product with its ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The has the new price\", function () {",
+									"    const responseJson = pm.response.json(); ",
+									"    pm.expect(responseJson).to.have.property(\"price\", 20);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}products/{{product}}",
+							"host": [
+								"{{baseurl}}products"
+							],
+							"path": [
+								"{{product}}"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -755,6 +825,40 @@
 								}
 							}
 						},
+						"url": {
+							"raw": "{{baseurl}}products/{{product}}",
+							"host": [
+								"{{baseurl}}products"
+							],
+							"path": [
+								"{{product}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gets the updated product with its ID Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Product has not been found\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "{{baseurl}}products/{{product}}",
 							"host": [
